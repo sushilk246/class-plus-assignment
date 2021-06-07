@@ -2,7 +2,7 @@
 using namespace std;
 
 
-int bfsWithDistance(vector<int> g[], bool mark[], int u, vector<int>&dis)
+int bfs(vector<int> g[], bool mark[], int u, vector<int>&dis)
 {
 	int lastnode;
 	queue<int> q;
@@ -42,7 +42,7 @@ int find_origin_city(vector<int>g[], vector<int>hp, int x, int n)
 
 	bool mark[n] = {false};
 	
-	for (int i = 0; i < n; i++)//marking given horspots 
+	for (int i = 0; i < hp.size(); i++)//marking given horspots 
 		mark[hp[i]] = true;
 
 	
@@ -52,11 +52,11 @@ int find_origin_city(vector<int>g[], vector<int>hp, int x, int n)
 
 	 int l,r;
 	 
-	l = bfsWithDistance(g, mark, 0, tmp);
+	l = bfs(g, mark, 0, tmp);
 
-	r = bfsWithDistance(g, mark, l, dl);
+	r = bfs(g, mark, l, dl);
 
-	int xyz = bfsWithDistance(g, mark, r, dr);
+	int xyz = bfs(g, mark, r, dr);
 
 	int ans = 0;
 
@@ -75,22 +75,23 @@ int main()
 	int n;	int h; 	int x;
 	
 	vector<int>g[n]; //graph
-	//vector<vector<int>>g
+	
 	
 	vector<int>hp; //for hotspot
 	
-	cout<<"enter number of cities ,number of hotsopt and distance x : ";
+	//"enter number of cities ,number of hotsopt and distance x : ";
+	
 	cin>>n>>h>>x;
 	
-	cout<<"enter hotspot cities : "<<endl;
+	//"enter hotspot cities : "<<endl;
 	while(h--)
 	{
 		int c;
 		cin>>c;
-		hp.push_back(c);
+		hp.push_back(c-1);
 	}
 	
-	cout<<"enter n-1 edges in U & v form "<<endl;
+	//cout<<"enter n-1 edges in U & v form "<<endl;
 	
 	for(int i=1;i<=n-1;i++)
 	{
@@ -100,12 +101,28 @@ int main()
         g[v-1].push_back(u-1);
 	}
 	
+	
+	
 	int ans=find_origin_city(g,hp,x,n);
+	
+	
 	
 	cout<<endl<<"possible no of hotspot is : "<<ans<<endl;
 	
 	return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
