@@ -2,7 +2,8 @@
 
 #copy and paste the code in c++ ide
 
-input formet: first line contain three integer n, h, x  where n is number of cities, h is number of hotspots cities and x is distance which virus can travel
+input formet: 
+              first line contain three integer n, h, x  where n is number of cities, h is number of hotspots cities and x is distance which virus can travel
 
               next line contain h integer reprenting hotspots cities
               
