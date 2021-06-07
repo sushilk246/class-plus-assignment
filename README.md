@@ -4,10 +4,9 @@
 
 input formet: 
               first line contain three integer n, h, x  where n is number of cities, h is number of hotspots cities and x is distance which virus can travel
-
               next line contain h integer reprenting hotspots cities
-              
               next n-1 line represent roads which connect that cities
+              
 
 
 
